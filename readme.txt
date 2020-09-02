@@ -1,4 +1,4 @@
-=== __TRIBE_BASE__ Extension: __TRIBE_NAME__ ===
+=== Event Tickets Extension: Promoter WP Admin Integration ===
 Contributors: ModernTribe
 Donate link: http://m.tri.be/29
 Tags: events, calendar

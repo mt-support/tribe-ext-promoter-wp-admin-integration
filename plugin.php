@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       __TRIBE_BASE__ Extension: __TRIBE_NAME__
+ * Plugin Name:       Event Tickets Extension: Promoter WP Admin Integration
  * Plugin URI:        __TRIBE_URL__
  * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-__TRIBE_SLUG__
  * Description:       __TRIBE_DESCRIPTION__
