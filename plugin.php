@@ -1,15 +1,15 @@
 <?php
 /**
  * Plugin Name:       Event Tickets Extension: Promoter WP Admin Integration
- * Plugin URI:        __TRIBE_URL__
- * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-__TRIBE_SLUG__
- * Description:       __TRIBE_DESCRIPTION__
- * Version:           __TRIBE_VERSION__
+ * Plugin URI:        https://theeventscalendar.com/extensions/promoter-wp-admin-integration/
+ * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-promoter-wp-admin-integration
+ * Description:       Just a little extension to bring quick access to your Promoter account from the Event Tickets admin pages
+ * Version:           1.0.0
  * Author:            Modern Tribe, Inc.
  * Author URI:        http://m.tri.be/1971
  * License:           GPL version 3 or any later version
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain:       __TRIBE_SLUG__
+ * Text Domain:       promoter-wp-admin-integration
  *
  *     This plugin is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -25,18 +25,18 @@
 /**
  * Define the base file that loaded the plugin for determining plugin path and other variables.
  *
- * @since __TRIBE_VERSION__
+ * @since 1.0.0
  *
  * @var string Base file that loaded the plugin.
  */
-define( 'TRIBE_EXTENSION___TRIBE_SLUG_CLEAN_UPPERCASE___FILE', __FILE__ );
+define( 'TRIBE_EXTENSION_PROMOTER_WP_ADMIN_INTEGRATION_FILE', __FILE__ );
 
 /**
  * Register and load the service provider for loading the extension.
  *
- * @since __TRIBE_VERSION__
+ * @since 1.0.0
  */
-function tribe_extension___TRIBE_SLUG_CLEAN__() {
+function tribe_extension_promoter_wp_admin_integration() {
 	// When we dont have autoloader from common we bail.
 	if  ( ! class_exists( 'Tribe__Autoloader' ) ) {
 		return;
@@ -44,13 +44,26 @@ function tribe_extension___TRIBE_SLUG_CLEAN__() {
 
 	// Register the namespace so we can the plugin on the service provider registration.
 	Tribe__Autoloader::instance()->register_prefix(
-		'\\Tribe\\Extensions\\__TRIBE_NAMESPACE__\\',
+		'\\Tribe\\Extensions\\Promoter_WP_Admin_Integration\\',
 		__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Tribe',
-		'__TRIBE_SLUG__'
+		'promoter-wp-admin-integration'
 	);
 
-	tribe_register_provider( '\Tribe\Extensions\__TRIBE_NAMESPACE__\Plugin' );
+	tribe_register_provider( '\Tribe\Extensions\Promoter_WP_Admin_Integration\Plugin' );
 }
 
 // Loads after common is already properly loaded.
-add_action( 'tribe_common_loaded', 'tribe_extension___TRIBE_SLUG_CLEAN__' );
+add_action( 'tribe_common_loaded', 'tribe_extension_promoter_wp_admin_integration' );
+
+
+/**
+ * Promoter links to add to WP Admin pages
+ *
+ * URL structure for Promoter Event = {promoter-domain}/events/{event_id}
+ * URL structure for Promoter Event > New message = {promoter-domain}/messages/new/{event_id}
+ * URL structure for Promoter Event > New message (Standard) = {promoter-domain}/messages/standard/{event_id}
+ * URL structure for Promoter Event > New message (Triggered) = {promoter-domain}/messages/trigger/{event_id}
+ * 
+ * Actions: 
+ * Filters: 'tribe_tickets_attendees_event_details_list_bottom' 'tribe_events_tickets_attendees_url'
+ */
