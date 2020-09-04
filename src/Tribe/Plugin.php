@@ -25,7 +25,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * @var string
 	 */
-	const SLUG = 'promoter-wp-admin-integration';
+	const SLUG = 'tribe-ext-promoter-wp-admin-integration';
 
 	/**
 	 * Stores the base slug for the extension.

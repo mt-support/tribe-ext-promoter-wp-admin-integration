@@ -9,7 +9,7 @@
  * Author URI:        http://m.tri.be/1971
  * License:           GPL version 3 or any later version
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain:       promoter-wp-admin-integration
+ * Text Domain:       tribe-ext-promoter-wp-admin-integration
  *
  *     This plugin is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -46,24 +46,10 @@ function tribe_extension_promoter_wp_admin_integration() {
 	Tribe__Autoloader::instance()->register_prefix(
 		'\\Tribe\\Extensions\\Promoter_WP_Admin_Integration\\',
 		__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Tribe',
-		'promoter-wp-admin-integration'
+		'tribe-ext-promoter-wp-admin-integration'
 	);
-
 	tribe_register_provider( '\Tribe\Extensions\Promoter_WP_Admin_Integration\Plugin' );
 }
 
 // Loads after common is already properly loaded.
 add_action( 'tribe_common_loaded', 'tribe_extension_promoter_wp_admin_integration' );
-
-
-/**
- * Promoter links to add to WP Admin pages
- *
- * URL structure for Promoter Event = {promoter-domain}/events/{event_id}
- * URL structure for Promoter Event > New message = {promoter-domain}/messages/new/{event_id}
- * URL structure for Promoter Event > New message (Standard) = {promoter-domain}/messages/standard/{event_id}
- * URL structure for Promoter Event > New message (Triggered) = {promoter-domain}/messages/trigger/{event_id}
- * 
- * Actions: 
- * Filters: 'tribe_tickets_attendees_event_details_list_bottom' 'tribe_events_tickets_attendees_url'
- */

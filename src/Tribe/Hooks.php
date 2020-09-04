@@ -54,7 +54,7 @@ class Hooks extends \tad_DI52_ServiceProvider {
 
 	/**
 	 * Adds the filters required by the plugin.
-	 * TODO: Add filters 'tribe_tickets_attendees_event_action_links' 'tribe_events_tickets_attendees_url'
+	 * 
 	 * @since 1.0.0
 	 */
 	protected function add_filters() {
@@ -63,30 +63,62 @@ class Hooks extends \tad_DI52_ServiceProvider {
 		if ( ! $pue->has_license_key() ) {
 			return;
 		}
-
+		add_filter( 'post_row_actions', [ $this, 'filter_actions' ], 30, 2 );
 		add_filter( 'tribe_tickets_attendees_event_action_links', [ $this, 'add_promoter_action_link' ], 10, 2 );
 	}
 
 	/**
 	 * Load text domain for localization of the plugin.
-	 *
+	 * 
 	 * @since 1.0.0
 	 */
 	public function load_text_domains() {
 		$mopath = tribe( Plugin::class )->plugin_dir . 'lang/';
-		$domain = 'promoter-wp-admin-integration';
+		$domain = 'tribe-ext-promoter-wp-admin-integration';
 
 		// This will load `wp-content/languages/plugins` files first.
 		\Tribe__Main::instance()->load_text_domain( $domain, $mopath );
 	}
 
 	/**
-	 * Add Promoter action links
-	 * TODO: document arguments
+	 * Add Promoter links to the post list table for tribe_events
+	 * 
+	 * @param array    $actions
+	 * @param WP_Post  $post
+	 * 
+	 * @since 1.0.0
+	 */
+	public function filter_actions( $actions, $post ) {
+		// Only proceed if we're viewing a tribe_events post type.
+		if ( !$post->post_type == 'tribe_events' ) {
+			return $actions;
+		}
+
+		// Only proceed if there are tickets.
+		if ( !tribe_events_has_tickets( $post ) ) {
+			return $actions;
+		}
+
+		$actions['promoter_'] = sprintf(
+			'<a title="%s" href="%s" target="_blank">%s</a>',
+			esc_html__( 'See this event in Promoter', 'tribe-ext-promoter-wp-admin-integration' ),
+			esc_url( 'https://promoter.theeventscalendar.com/events/' . $post->ID ),
+			esc_html__( 'Promoter', 'tribe-ext-promoter-wp-admin-integration' )
+		);
+
+		return $actions;
+	}
+
+	/**
+	 * Add Promoter action links to the attendees page
+	 * 
+	 * @param array  $action_links
+	 * @param string $event_id
+	 * 
 	 * @since 1.0.0
 	 */
 	public function add_promoter_action_link( $action_links, $event_id ) {
-		$action_links[] = '<a href="' . esc_url( 'https://promoter.theeventscalendar.com/messages/new/' . $event_id ) . '" title="' . esc_attr_x( 'Create Promoter Message', 'attendee event actions', 'promoter-wp-admin-integration' ) . '">' . esc_attr_x( 'Create Promoter Message', 'attendee event actions', 'promoter-wp-admin-integration' ) . '</a>';
+		$action_links[] = '<a href="' . esc_url( 'https://promoter.theeventscalendar.com/messages/new/' . $event_id ) . '" title="' . esc_attr_x( 'Create Promoter Message', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' ) . '">' . esc_attr_x( 'Create Promoter Message', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' ) . '</a>';
 
 		return $action_links;
 	}
