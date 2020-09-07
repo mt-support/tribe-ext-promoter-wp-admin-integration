@@ -118,7 +118,12 @@ class Hooks extends \tad_DI52_ServiceProvider {
 	 * @since 1.0.0
 	 */
 	public function add_promoter_action_link( $action_links, $event_id ) {
-		$action_links[] = '<a href="' . esc_url( 'https://promoter.theeventscalendar.com/messages/new/' . $event_id ) . '" title="' . esc_attr_x( 'Create Promoter Message', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' ) . '">' . esc_attr_x( 'Create Promoter Message', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' ) . '</a>';
+		$action_links[] = sprintf(
+			"<a href='%s' title='%s'>%s</a>",
+			esc_url( 'https://promoter.theeventscalendar.com/messages/new/' . $event_id ),
+			esc_attr_x( 'Create Promoter Message', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' ),
+			esc_html_x( 'Create Promoter Message', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' )
+		);
 
 		return $action_links;
 	}
