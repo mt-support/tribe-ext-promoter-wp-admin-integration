@@ -101,7 +101,7 @@ class Hooks extends \tad_DI52_ServiceProvider {
 
 		$actions['promoter_'] = sprintf(
 			'<a title="%s" href="%s" target="_blank">%s</a>',
-			esc_html__( 'See this event in Promoter', 'tribe-ext-promoter-wp-admin-integration' ),
+			esc_attr_x( 'See this event in Promoter', 'Title attribute for promoter link', 'tribe-ext-promoter-wp-admin-integration' ),
 			esc_url( 'https://promoter.theeventscalendar.com/events/' . $post->ID ),
 			esc_html__( 'Promoter', 'tribe-ext-promoter-wp-admin-integration' )
 		);
