@@ -90,7 +90,7 @@ class Hooks extends \tad_DI52_ServiceProvider {
 	 */
 	public function filter_actions( $actions, $post ) {
 		// Only proceed if we're viewing a tribe_events post type.
-		if ( !$post->post_type == 'tribe_events' ) {
+		if ( !$post->post_type === 'tribe_events' ) {
 			return $actions;
 		}
 
