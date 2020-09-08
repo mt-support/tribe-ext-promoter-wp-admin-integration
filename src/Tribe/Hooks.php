@@ -50,6 +50,12 @@ class Hooks extends \tad_DI52_ServiceProvider {
 	 */
 	protected function add_actions() {
 		add_action( 'tribe_load_text_domains', [ $this, 'load_text_domains' ] );
+		/** @var Tribe__Promoter__PUE $pue */
+		$pue = tribe( 'promoter.pue' );
+		if ( ! $pue->has_license_key() ) {
+			return;
+		}
+		add_action('tribe_events_tickets_attendees_ticket_sales_bottom', [ $this, 'print_promoter_audiences_link'] );
 	}
 
 	/**
@@ -78,6 +84,21 @@ class Hooks extends \tad_DI52_ServiceProvider {
 
 		// This will load `wp-content/languages/plugins` files first.
 		\Tribe__Main::instance()->load_text_domain( $domain, $mopath );
+	}
+
+	/**
+	 * Print a Promoter link to the audience
+	 * 
+	 * @param string $event_id
+	 * @since 1.0.0
+	 */
+	public function print_promoter_audiences_link( $event_id ) {
+		echo $actions['promoter_'] = sprintf(
+			'<a title="%s" href="%s" target="_blank">%s</a>',
+			esc_attr_x( 'See your Audience in Promoter', 'Title attribute for promoter link', 'tribe-ext-promoter-wp-admin-integration' ),
+			esc_url( 'https://promoter.theeventscalendar.com/events/' . $event_id . '/audiences' ),
+			esc_html__( 'Promoter Audience', 'tribe-ext-promoter-wp-admin-integration' )
+		);
 	}
 
 	/**
