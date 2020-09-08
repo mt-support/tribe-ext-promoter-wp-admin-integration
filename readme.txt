@@ -1,21 +1,19 @@
-=== __TRIBE_BASE__ Extension: __TRIBE_NAME__ ===
+=== Event Tickets Extension: Promoter WP Admin Integration ===
 Contributors: ModernTribe
 Donate link: http://m.tri.be/29
 Tags: events, calendar
 Requires at least: 4.9
 Tested up to: 5.4.1
 Requires PHP: 5.6
-Stable tag: __TRIBE_VERSION__
+Stable tag: 1.0.0
 License: GPL version 3 or any later version
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-__TRIBE_DESCRIPTION__
+Just a little extension to bring quick access to your Promoter account from the Event Tickets admin pages
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
-
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and Markdown parsed.
+This extension aims to improve the UX of Event Tickets WP Admin pages for Promoter users.
 
 == Installation ==
 

@@ -1,0 +1,48 @@
+# Copyright (C) 2020 Modern Tribe, Inc.
+# This file is distributed under the GPL version 3 or any later version.
+msgid ""
+msgstr ""
+"Project-Id-Version: Event Tickets Extension: Promoter WP Admin Integration 1.0.0\n"
+"Report-Msgid-Bugs-To: Modern Tribe, Inc. <https://support.theeventscalendar.com/>\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-09-04T22:25:46+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0-alpha\n"
+"X-Domain: tribe-ext-promoter-wp-admin-integration\n"
+
+#. Plugin Name of the plugin
+msgid "Event Tickets Extension: Promoter WP Admin Integration"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://theeventscalendar.com/extensions/promoter-wp-admin-integration/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Just a little extension to bring quick access to your Promoter account from the Event Tickets admin pages"
+msgstr ""
+
+#. Author of the plugin
+msgid "Modern Tribe, Inc."
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://m.tri.be/1971"
+msgstr ""
+
+#: src/Tribe/Hooks.php:104
+msgid "See this event in Promoter"
+msgstr ""
+
+#: src/Tribe/Hooks.php:106
+msgid "Promoter"
+msgstr ""
+
+#: src/Tribe/Hooks.php:121
+msgctxt "attendee event actions"
+msgid "Create Promoter Message"
+msgstr ""
