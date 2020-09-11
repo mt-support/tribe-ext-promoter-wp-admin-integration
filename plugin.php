@@ -48,6 +48,17 @@ function tribe_extension_promoter_wp_admin_integration() {
 		__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Tribe',
 		'tribe-ext-promoter-wp-admin-integration'
 	);
+	
+	if ( ! class_exists( '\Tribe\Extensions\Promoter_WP_Admin_Integration\Plugin' ) ) {
+		tribe_transient_notice(
+			'ext-autoload-error-promoter-wp-admin-integration'
+			'<p>' . esc_html__( 'Version incompatibility for "Event Tickets Extension: Promoter WP Admin Integration" the extension was disabled.', 'tribe-ext-promoter-wp-admin-integration' ) . '</p>',
+		);
+		
+		deactivate_plugins( __FILE__, true )
+		return;
+	}
+	
 	tribe_register_provider( '\Tribe\Extensions\Promoter_WP_Admin_Integration\Plugin' );
 }
 
