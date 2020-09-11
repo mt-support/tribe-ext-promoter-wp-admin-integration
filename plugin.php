@@ -55,7 +55,7 @@ function tribe_extension_promoter_wp_admin_integration() {
 			'<p>' . esc_html__( 'Version incompatibility for "Event Tickets Extension: Promoter WP Admin Integration" the extension was disabled.', 'tribe-ext-promoter-wp-admin-integration' ) . '</p>',
 		);
 		
-		deactivate_plugins( __FILE__, true )
+		deactivate_plugins( __FILE__, true );
 		return;
 	}
 	
