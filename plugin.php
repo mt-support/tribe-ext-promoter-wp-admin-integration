@@ -59,6 +59,8 @@ function tribe_extension_promoter_wp_admin_integration() {
 			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		}
 
+		deactivate_plugins( __FILE__, true );
+		
 		return;
 	}
 	
