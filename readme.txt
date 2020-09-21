@@ -13,7 +13,7 @@ Just a little extension to bring quick access to your Promoter account from the 
 
 == Description ==
 
-This extension aims to improve the UX of Event Tickets WP Admin pages for Promoter users.
+This extension aims to improve the UX of Event Tickets WP Admin pages for Promoter (https://theeventscalendar.com/product/promoter/) users.
 
 == Installation ==
 
