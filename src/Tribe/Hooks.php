@@ -141,14 +141,14 @@ class Hooks extends \tad_DI52_ServiceProvider {
 	public function add_promoter_action_link( $action_links, $event_id ) {
 		// Create Regular Message link
 		$action_links[] = sprintf(
-			"<a href='%s' title='%s'>%s</a>",
+			'<a title="%s" href="%s" target="_blank">%s</a>',
 			esc_url( 'https://promoter.theeventscalendar.com/messages/standard/' . $event_id ),
 			esc_attr_x( 'Create New Regular Message in Promoter', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' ),
 			esc_html_x( 'Add Regular Message', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' )
 		);
 		// Create Triggered Message link
 		$action_links[] = sprintf(
-			"<a href='%s' title='%s'>%s</a>",
+			'<a title="%s" href="%s" target="_blank">%s</a>',
 			esc_url( 'https://promoter.theeventscalendar.com/messages/trigger/' . $event_id ),
 			esc_attr_x( 'Create New Triggered Message in Promoter', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' ),
 			esc_html_x( 'Add Triggered Message', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' )
