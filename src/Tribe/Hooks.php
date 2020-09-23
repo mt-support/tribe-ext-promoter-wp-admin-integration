@@ -94,9 +94,9 @@ class Hooks extends \tad_DI52_ServiceProvider {
 	 */
 	public function print_promoter_audiences_link( $event_id ) {
 		echo $actions['promoter_'] = sprintf(
-			'<a title="%s" href="%s" target="_blank">%s</a>',
-			esc_attr_x( 'See your Audience in Promoter', 'Title attribute for promoter link', 'tribe-ext-promoter-wp-admin-integration' ),
+			'<a href="%s" title="%s" target="_blank">%s</a>',
 			esc_url( 'https://promoter.theeventscalendar.com/events/' . $event_id . '/audiences' ),
+			esc_attr_x( 'See your Audience in Promoter', 'Title attribute for promoter link', 'tribe-ext-promoter-wp-admin-integration' ),
 			esc_html__( 'Promoter Audience', 'tribe-ext-promoter-wp-admin-integration' )
 		);
 	}
@@ -121,9 +121,9 @@ class Hooks extends \tad_DI52_ServiceProvider {
 		}
 
 		$actions['promoter_'] = sprintf(
-			'<a title="%s" href="%s" target="_blank">%s</a>',
-			esc_attr_x( 'See this event in Promoter', 'Title attribute for promoter link', 'tribe-ext-promoter-wp-admin-integration' ),
+			'<a href="%s" title="%s" target="_blank">%s</a>',
 			esc_url( 'https://promoter.theeventscalendar.com/events/' . $post->ID ),
+			esc_attr_x( 'See this event in Promoter', 'Title attribute for promoter link', 'tribe-ext-promoter-wp-admin-integration' ),
 			esc_html__( 'Promoter', 'tribe-ext-promoter-wp-admin-integration' )
 		);
 
@@ -141,14 +141,14 @@ class Hooks extends \tad_DI52_ServiceProvider {
 	public function add_promoter_action_link( $action_links, $event_id ) {
 		// Create Regular Message link
 		$action_links[] = sprintf(
-			'<a title="%s" href="%s" target="_blank">%s</a>',
+			'<a href="%s" title="%s" target="_blank">%s</a>',
 			esc_url( 'https://promoter.theeventscalendar.com/messages/standard/' . $event_id ),
 			esc_attr_x( 'Create New Regular Message in Promoter', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' ),
 			esc_html_x( 'Add Regular Message', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' )
 		);
 		// Create Triggered Message link
 		$action_links[] = sprintf(
-			'<a title="%s" href="%s" target="_blank">%s</a>',
+			'<a href="%s" title="%s" target="_blank">%s</a>',
 			esc_url( 'https://promoter.theeventscalendar.com/messages/trigger/' . $event_id ),
 			esc_attr_x( 'Create New Triggered Message in Promoter', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' ),
 			esc_html_x( 'Add Triggered Message', 'attendee event actions', 'tribe-ext-promoter-wp-admin-integration' )
