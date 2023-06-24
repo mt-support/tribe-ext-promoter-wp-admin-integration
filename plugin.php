@@ -4,7 +4,7 @@
  * Plugin URI:        https://theeventscalendar.com/extensions/promoter-wp-admin-integration/
  * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-promoter-wp-admin-integration
  * Description:       Just a little extension to bring quick access to your Promoter account from the Event Tickets admin pages
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Modern Tribe, Inc.
  * Author URI:        http://m.tri.be/1971
  * License:           GPL version 3 or any later version
